@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Five Star Tax – Role Distribution</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f5f7;
+      margin: 20px;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 10px;
+    }
+    .wrapper {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 25px;
+    }
+    .card {
+      background: #fff;
+      border: 1px solid #d1d5db;
+      border-radius: 8px;
+      padding: 15px;
+    }
+    @media (max-width: 900px) {
+      .wrapper {
+        grid-template-columns: 1fr;
+      }
+    }
+    .note {
+      max-width: 1100px;
+      margin: 20px auto;
+      font-size: 12px;
+      color: #6b7280;
+    }
+  </style>
+</head>
+<body>
+    <!-- NAVBAR START -->
+<nav style="
+  background:#264653;
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:20px;
+  padding:12px 10px;
+  box-shadow:0 2px 4px rgba(0,0,0,.1);
+">
+  <a href="index.html" style="color:#fff;text-decoration:none;font-weight:bold;">🏠 Home</a>
+  <a href="contacts.html" style="color:#fff;text-decoration:none;">📇 Directory</a>
+  <a href="roles-chart.html" style="color:#fff;text-decoration:none;">📊 Role Chart</a>
+  <a href="structure.html" style="color:#fff;text-decoration:none;">🏢 Structure</a>
+  <a href="workflow.html" style="color:#fff;text-decoration:none;">⚙️ Workflow</a>
+</nav>
+<!-- NAVBAR END -->
+
+  <h1>Five Star Tax – Distribution of Roles (Approx.)</h1>
+  <div class="wrapper">
+    <div class="card">
+      <h3>Share by Department (Pie)</h3>
+      <canvas id="pieChart"></canvas>
+    </div>
+    <div class="card">
+      <h3>Headcount by Department (Bar)</h3>
+      <canvas id="barChart"></canvas>
+    </div>
+  </div>
+  <p class="note">
+    Note: counts are inferred from the extension directory you provided and grouped by job title.
+    If you update the directory, just change the numbers in the JS arrays below.
+  </p>
+
+  <script>
+    // labels & data from your directory
+    const labels = [
+      "Executive / Mgmt",
+      "Tax Dept",
+      "Sales",
+      "Case Work & Support",
+      "Marketing & Ops",
+      "Finance & Accounting",
+      "Opening Team",
+      "Customer Service / Complaints",
+      "Other / Specialist"
+    ];
+
+    const dataCounts = [6, 9, 12, 14, 4, 2, 4, 3, 3];
+
+    // PIE
+    const pieCtx = document.getElementById('pieChart').getContext('2d');
+    new Chart(pieCtx, {
+      type: 'pie',
+      data: {
+        labels: labels,
+        datasets: [{
+          data: dataCounts,
+          // Chart.js will auto-pick colors; you can specify if you want
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: {
+            position: 'bottom'
+          },
+          title: {
+            display: false
+          }
+        }
+      }
+    });
+
+    // BAR
+    const barCtx = document.getElementById('barChart').getContext('2d');
+    new Chart(barCtx, {
+      type: 'bar',
+      data: {
+        labels: labels,
+        datasets: [{
+          label: 'Headcount',
+          data: dataCounts
+        }]
+      },
+      options: {
+        responsive: true,
+        scales: {
+          y: {
+            beginAtZero: true,
+            ticks: {
+              stepSize: 2
+            }
+          }
+        },
+        plugins: {
+          legend: { display: false }
+        }
+      }
+    });
+  </script>
+</body>
+</html>

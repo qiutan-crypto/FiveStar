@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Five Star Tax Resolution – Operational Workflow</title>
+  <style>
+    :root {
+      --bg: #f4f5f7;
+      --card: #fff;
+      --primary: #264653;
+      --accent: #2a9d8f;
+      --border: #d1d5db;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      background: var(--bg);
+      margin: 0;
+      padding: 0 0 40px;
+    }
+    header {
+      background: var(--primary);
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+    h1 { margin: 0; }
+    .container {
+      max-width: 1100px;
+      margin: 20px auto;
+      padding: 0 15px;
+    }
+    /* top flow line */
+    .flow-row {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 25px;
+      justify-content: center;
+    }
+    .flow-step {
+      background: var(--card);
+      border: 1px solid var(--border);
+      padding: 12px 16px;
+      border-radius: 8px;
+      min-width: 160px;
+      text-align: center;
+      position: relative;
+      font-weight: bold;
+      box-shadow: 0 2px 4px rgba(0,0,0,.04);
+    }
+    .flow-step::after {
+      content: "→";
+      position: absolute;
+      right: -12px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 20px;
+      color: #999;
+    }
+    .flow-step:last-child::after {
+      content: "";
+    }
+
+    /* collapsible sections */
+    details {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      margin-bottom: 14px;
+      overflow: hidden;
+    }
+    summary {
+      cursor: pointer;
+      padding: 12px 16px;
+      background: #fff;
+      font-weight: bold;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    summary::-webkit-details-marker {
+      display: none;
+    }
+    .tagline {
+      font-size: 12px;
+      color: #6b7280;
+      font-weight: normal;
+      margin-left: 6px;
+    }
+    .content {
+      padding: 0 16px 12px 16px;
+      background: #fff;
+    }
+    .dept {
+      font-weight: bold;
+      margin-top: 10px;
+      color: var(--primary);
+    }
+    ul {
+      margin: 5px 0 10px 18px;
+    }
+    .badge {
+      background: #eef6f6;
+      color: #0f766e;
+      font-size: 11px;
+      padding: 2px 6px;
+      border-radius: 4px;
+      margin-left: 6px;
+    }
+    .note {
+      font-size: 12px;
+      color: #6b7280;
+      margin-top: 6px;
+    }
+    @media (max-width: 700px) {
+      .flow-step::after { display: none; }
+      .flow-row { justify-content: flex-start; }
+    }
+  </style>
+</head>
+<body>
+    <!-- NAVBAR START -->
+<nav style="
+  background:#264653;
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:20px;
+  padding:12px 10px;
+  box-shadow:0 2px 4px rgba(0,0,0,.1);
+">
+  <a href="index.html" style="color:#fff;text-decoration:none;font-weight:bold;">🏠 Home</a>
+  <a href="contacts.html" style="color:#fff;text-decoration:none;">📇 Directory</a>
+  <a href="roles-chart.html" style="color:#fff;text-decoration:none;">📊 Role Chart</a>
+  <a href="structure.html" style="color:#fff;text-decoration:none;">🏢 Structure</a>
+  <a href="workflow.html" style="color:#fff;text-decoration:none;">⚙️ Workflow</a>
+</nav>
+<!-- NAVBAR END -->
+
+  <header>
+    <h1>Five Star Tax Resolution – Operational Workflow</h1>
+    <p>From lead → intake → tax analysis → IRS submission → post-resolution</p>
+  </header>
+
+  <div class="container">
+    <!-- top flow -->
+    <div class="flow-row">
+      <div class="flow-step">1. Lead & Intake</div>
+      <div class="flow-step">2. Case Setup</div>
+      <div class="flow-step">3. Tax Analysis</div>
+      <div class="flow-step">4. IRS Submission</div>
+      <div class="flow-step">5. Resolution & Follow-up</div>
+    </div>
+
+    <!-- 1 -->
+    <details open>
+      <summary>
+        1. Client Acquisition & Intake
+        <span class="tagline">Sales · Marketing · Openers · Customer Service</span>
+      </summary>
+      <div class="content">
+        <p class="dept">Departments:</p>
+        <ul>
+          <li>Marketing (Amelia Downes), Technical Ops (Chase Parker)</li>
+          <li>Opening Team (Matthew Kim, Ryan Kim, Justin Huerta, Wessam Ibrahim)</li>
+          <li>Sales Team (Ashley Park, Brandon Jones, Ryan Harmon, etc.)</li>
+          <li>Customer Service (Johnniessa “JoJo” Everett)</li>
+        </ul>
+        <p class="dept">Steps:</p>
+        <ul>
+          <li>Run ads / referrals → leads enter CRM <span class="badge">auto</span></li>
+          <li>Openers call, verify tax problem, collect basics</li>
+          <li>Sales explains programs, secures engagement letter & payment</li>
+          <li>Account created → handed to Case Management</li>
+        </ul>
+        <p class="note">Output: “New Active Case” with client data + signed authorization.</p>
+      </div>
+    </details>
+
+    <!-- 2 -->
+    <details>
+      <summary>
+        2. Case Setup & IRS Investigation
+        <span class="tagline">Case Workers · Case Managers · Office Admin</span>
+      </summary>
+      <div class="content">
+        <p class="dept">Departments:</p>
+        <ul>
+          <li>Case Workers (Jeff Tong, Shyenne Perkins, Christian Villanueva, etc.)</li>
+          <li>Case Managers / Supervisors (Al Frias, Cheryl McManus, Rosa Lopez)</li>
+          <li>Office Admin (Mia Luna)</li>
+        </ul>
+        <p class="dept">Steps:</p>
+        <ul>
+          <li>Case Manager assigns case to a Case Worker</li>
+          <li>Collect IRS letters, prior returns, IDs from client</li>
+          <li>File POA (Form 2848) so Five Star can talk to IRS</li>
+          <li>Pull IRS transcripts & balances; log in system</li>
+        </ul>
+        <p class="note">Output: “Investigated Case” with IRS data ready for tax strategy.</p>
+      </div>
+    </details>
+
+    <!-- 3 -->
+    <details>
+      <summary>
+        3. Tax Analysis & Strategy
+        <span class="tagline">Tax Managers · Attorneys · CPA/EA</span>
+      </summary>
+      <div class="content">
+        <p class="dept">Departments:</p>
+        <ul>
+          <li>Tax Managers (Mark Pineda, Trevon Ross)</li>
+          <li>Tax Attorneys (Randy Salter, Victor Latham, Edward Korducki)</li>
+          <li>CPA / EA (Sarah Gao, Albert Leary)</li>
+          <li>Tax Assistants (Alston Zhou, Daniel Ferrumpau-Perez)</li>
+        </ul>
+        <p class="dept">Steps:</p>
+        <ul>
+          <li>Review transcripts & compliance status</li>
+          <li>Prepare financials (Form 433) and ability-to-pay analysis</li>
+          <li>Choose program: Offer in Compromise, IA, CNC, Penalty Abatement</li>
+          <li>Present plan to client → get approval & signatures</li>
+        </ul>
+        <p class="note">Output: “Approved Resolution Plan” + supporting financial docs.</p>
+      </div>
+    </details>
+
+    <!-- 4 -->
+    <details>
+      <summary>
+        4. IRS Submission & Negotiation
+        <span class="tagline">Tax Dept · Case Workers</span>
+      </summary>
+      <div class="content">
+        <p class="dept">Departments:</p>
+        <ul>
+          <li>Tax Department (attorneys, EA, CPA)</li>
+          <li>Case Workers for follow-up calls</li>
+        </ul>
+        <p class="dept">Steps:</p>
+        <ul>
+          <li>Submit full package to IRS / state</li>
+          <li>Track deadlines, respond to IRS additional info requests</li>
+          <li>Attorney/EA negotiates amount or terms with IRS officer</li>
+          <li>Record acceptance letter / agreement in client file</li>
+        </ul>
+        <p class="note">Output: “Resolved Case” – accepted OIC, IA set up, or CNC approved.</p>
+      </div>
+    </details>
+
+       <!-- 5 -->
+    <details>
+      <summary>
+        5. Resolution &amp; Follow-up
+        <span class="tagline">Accounting · Customer Service · Marketing</span>
+      </summary>
+      <div class="content">
+        <p class="dept">Departments:</p>
+        <ul>
+          <li>Accounting / Bookkeeping (Steven Krause, Lifeng Liu)</li>
+          <li>Customer Service / Complaints (Destinie Langford)</li>
+          <li>Marketing (for review / retention)</li>
+        </ul>
+        <p class="dept">Steps:</p>
+        <ul>
+          <li>Record IRS acceptance / finalized agreement in client file</li>
+          <li>Finance tracks installment or OIC lump-sum payments</li>
+          <li>Customer Service calls client to confirm issue is resolved</li>
+          <li>Send review link (Google / BBB) to happy clients</li>
+          <li>Add client to annual tax / bookkeeping follow-up list</li>
+        </ul>
+        <p class="note">Output: “Closed & retained client” — case archived, client stays in nurture cycle.</p>
+      </div>
+    </details>
+
+    <p class="note">
+      Tip: you can plug this into your internal portal and map each step to your real people
+      (the 63 from the directory) so managers can see workloads.
+    </p>
+  </div>
+</body>
+</html>
