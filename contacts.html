@@ -38,6 +38,29 @@
     a:hover {
       text-decoration: underline;
     }
+    .search-container {
+      max-width: 420px;
+      margin: 0 auto 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .search-container label {
+      font-weight: bold;
+      font-size: 15px;
+    }
+    .search-container input {
+      padding: 10px 12px;
+      border: 1px solid #ced4da;
+      border-radius: 4px;
+      font-size: 15px;
+    }
+    .no-results {
+      text-align: center;
+      font-style: italic;
+      color: #6c757d;
+      display: none;
+    }
   </style>
 </head>
 <body>
@@ -60,6 +83,15 @@
 <!-- NAVBAR END -->
 
   <h1>Five Star Tax Employee Directory</h1>
+  <div class="search-container">
+    <label for="contactSearch">Search contacts</label>
+    <input
+      type="text"
+      id="contactSearch"
+      placeholder="Type a name, title, extension, or phone"
+      autocomplete="off"
+    />
+  </div>
   <table>
     <thead>
       <tr>
@@ -505,7 +537,45 @@
         <td>626-656-6388</td>
         <td><a href="mailto:wessam@fivestartaxhelp.com">wessam@fivestartaxhelp.com</a></td>
       </tr>
+      <tr id="noResultsRow" class="no-results">
+        <td colspan="5">No contacts match your search.</td>
+      </tr>
     </tbody>
   </table>
+  <script>
+    (function () {
+      var searchInput = document.getElementById('contactSearch');
+      if (!searchInput) {
+        return;
+      }
+      var tableRows = Array.prototype.filter.call(
+        document.querySelectorAll('tbody tr'),
+        function (row) {
+          return !row.classList.contains('no-results');
+        }
+      );
+      var noResultsRow = document.getElementById('noResultsRow');
+
+      var filterRows = function () {
+        var query = searchInput.value.trim().toLowerCase();
+        var matches = 0;
+
+        tableRows.forEach(function (row) {
+          var match = row.textContent.toLowerCase().includes(query);
+          row.style.display = match ? '' : 'none';
+          if (match) {
+            matches++;
+          }
+        });
+
+        if (noResultsRow) {
+          noResultsRow.style.display = matches === 0 ? 'table-row' : 'none';
+        }
+      };
+
+      searchInput.addEventListener('input', filterRows);
+      filterRows();
+    })();
+  </script>
 </body>
 </html>
